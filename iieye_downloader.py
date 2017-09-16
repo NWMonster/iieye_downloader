@@ -70,6 +70,7 @@ os.system('mkdir '+ download_path)
 download_path = download_path + '/'
 
 for i in range(len(files)):
+    print 'progress: %02d%%' % (i*100/len(files))
     if (sys.argv[2] == '0'):
         req = urllib2.Request(comic_url + files[i])
         req.add_header('Referer', url)
