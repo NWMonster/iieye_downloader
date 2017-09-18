@@ -14,22 +14,26 @@ def decode(en_files):
     split = tmp[-1:]
     table = tmp[:-1]
     en_files = en_files[:len(en_files) - table_offset -12]
+    print en_files
     for i in range(len(table)):
 	en_files = en_files.replace(table[i], str(i))
+    print de_files_s
     de_files_s = en_files.split(split)
     for i in range(len(de_files_s)):
-	de_files += chr(int(de_files_s[i]))
+        de_files += chr(int(de_files_s[i][-3:]))
     return de_files
 
 def decode2(en_files, sk):
     de_files = ''
     split = sk[-1:]
     table = sk[:-1]
+    print en_files
     for i in range(len(table)):
 	en_files = en_files.replace(table[i], str(i))
     de_files_s = en_files.split(split)
+    print de_files_s
     for i in range(len(de_files_s)):
-	de_files += chr(int(de_files_s[i]))
+        de_files += chr(int(de_files_s[i][-3:]))
     return de_files
 
 def usage():
